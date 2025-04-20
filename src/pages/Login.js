@@ -29,7 +29,7 @@ const Login = () => {
       const token = res.data.token;
 
       localStorage.setItem("token", token); // store JWT for future use
-      navigate("/"); // redirect to home
+      navigate("/dashboard"); // redirect to dashboard instead of home
     } catch (err) {
       const msg =
         err.response?.data?.msg ||

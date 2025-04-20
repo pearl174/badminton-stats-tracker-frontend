@@ -1,0 +1,56 @@
+/* src/styles/CalendarHeatmap.css */
+
+.react-calendar-heatmap {
+    width: 100%;
+  }
+  
+  .react-calendar-heatmap .color-empty {
+    fill: #2a2a2a;
+  }
+  
+  .react-calendar-heatmap .color-scale-1 {
+    fill: #4fc3f7;
+    opacity: 0.25;
+  }
+  
+  .react-calendar-heatmap .color-scale-2 {
+    fill: #4fc3f7;
+    opacity: 0.5;
+  }
+  
+  .react-calendar-heatmap .color-scale-3 {
+    fill: #4fc3f7;
+    opacity: 0.75;
+  }
+  
+  .react-calendar-heatmap .color-scale-4 {
+    fill: #4fc3f7;
+    opacity: 1;
+  }
+  
+  .react-calendar-heatmap rect {
+    rx: 2;
+    ry: 2;
+    height: 10px;
+  }
+  
+  .react-calendar-heatmap text {
+    font-size: 6px;
+    fill: #aaa;
+  }
+  
+  .react-calendar-heatmap .month-label {
+    font-size: 8px;
+  }
+  
+  .react-calendar-heatmap rect:hover {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .react-calendar-heatmap text {
+      display: none;
+    }
+  }
