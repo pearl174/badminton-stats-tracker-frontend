@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setLoggedIn, setProfilePic }) => {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -27,8 +27,11 @@ const Login = () => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", form);
       const token = res.data.token;
+      const profilePic = res.data.profilePic;
 
       localStorage.setItem("token", token); // store JWT for future use
+      setLoggedIn(true);
+      setProfilePic(profilePic || "");
       navigate("/dashboard"); // redirect to dashboard instead of home
     } catch (err) {
       const msg =

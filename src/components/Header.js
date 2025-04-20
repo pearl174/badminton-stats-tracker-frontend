@@ -1,9 +1,15 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton, Avatar } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ loggedIn, profilePic }) => {
+const Header = ({ loggedIn, setLoggedIn, profilePic }) => {
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setLoggedIn(false);
+    navigate("/");
+  };
 
   return (
     <AppBar position="static">
@@ -13,7 +19,12 @@ const Header = ({ loggedIn, profilePic }) => {
         </Typography>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {loggedIn ? (
-            <Avatar src={profilePic} alt="profile" />
+            <>
+              <Avatar src={profilePic} alt="profile" />
+              <Button color="inherit" onClick={handleLogout}>
+                Logout
+              </Button>
+            </>
           ) : (
             <>
               <Button color="inherit" onClick={() => navigate("/login")}>

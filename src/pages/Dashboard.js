@@ -209,6 +209,18 @@ const Dashboard = () => {
                 >
                   VIEW FRIENDS
                 </Button>
+                <Button 
+                  variant="outlined" 
+                  fullWidth
+                  sx={{ 
+                    mt: 2,
+                    borderRadius: 1,
+                    py: 1
+                  }}
+                  onClick={() => navigate("/requests")}
+                >
+                  VIEW FRIEND REQUESTS
+                </Button>
               </Box>
             </Box>
           </Paper>

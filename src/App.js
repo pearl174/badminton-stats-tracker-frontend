@@ -10,6 +10,9 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import FriendsList from "./pages/FriendList";
+import FriendRequests from "./pages/FriendRequests";
+import SendFriendRequest from "./pages/SendFriendRequest";
 
 const darkTheme = createTheme({
   palette: {
@@ -51,16 +54,40 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Router>
-        <Header loggedIn={loggedIn} profilePic={profilePic} />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} profilePic={profilePic} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setProfilePic={setProfilePic} />} />
           <Route 
             path="/dashboard" 
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/friends" 
+            element={
+              <ProtectedRoute>
+                <FriendsList />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/requests" 
+            element={
+              <ProtectedRoute>
+                <FriendRequests />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/sendrequest" 
+            element={
+              <ProtectedRoute>
+                <SendFriendRequest />
               </ProtectedRoute>
             } 
           />
