@@ -1,18 +1,27 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, Avatar } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, IconButton, Avatar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ loggedIn, profilePic }) => {
+  const navigate = useNavigate();
+
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Typography variant="h6">Badmintify</Typography>
+        <Typography variant="h6" onClick={() => navigate("/")} sx={{ cursor: "pointer" }}>
+          Badmintify
+        </Typography>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {loggedIn ? (
             <Avatar src={profilePic} alt="profile" />
           ) : (
             <>
-              <Button color="inherit">Login</Button>
-              <Button color="inherit">Sign Up</Button>
+              <Button color="inherit" onClick={() => navigate("/login")}>
+                Login
+              </Button>
+              <Button color="inherit" onClick={() => navigate("/signup")}>
+                Sign Up
+              </Button>
             </>
           )}
         </div>

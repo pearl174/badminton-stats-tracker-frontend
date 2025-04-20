@@ -1,17 +1,35 @@
+// src/App.js
+
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import { ThemeModeProvider } from "./theme/ThemeContext";
+import SignUp from "./pages/SignUp";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   const dummyLoggedIn = false;
   const dummyProfilePic = "https://i.pravatar.cc/40";
 
   return (
-    <ThemeModeProvider>
-      <Header loggedIn={dummyLoggedIn} profilePic={dummyProfilePic} />
-      <Home />
-    </ThemeModeProvider>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Router>
+        <Header loggedIn={dummyLoggedIn} profilePic={dummyProfilePic} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
