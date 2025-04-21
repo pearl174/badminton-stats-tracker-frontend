@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import FriendsList from "./pages/FriendList";
 import FriendRequests from "./pages/FriendRequests";
 import SendFriendRequest from "./pages/SendFriendRequest";
+import PlayMatch from "./pages/PlayMatch";
 
 const darkTheme = createTheme({
   palette: {
@@ -90,6 +91,14 @@ function App() {
                 <SendFriendRequest />
               </ProtectedRoute>
             } 
+          />
+          <Route
+            path="/play/:friendUsername"
+            element={
+              <ProtectedRoute>
+                <PlayMatch />
+              </ProtectedRoute>
+            }
           />
         </Routes>
       </Router>

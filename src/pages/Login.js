@@ -23,16 +23,17 @@ const Login = ({ setLoggedIn, setProfilePic }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-
+  
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", form);
-      const token = res.data.token;
-      const profilePic = res.data.profilePic;
-
-      localStorage.setItem("token", token); // store JWT for future use
+      const { token, profilePic } = res.data;
+  
+      localStorage.setItem("token", token);
+      localStorage.setItem("username", form.username); // Save the username
+  
       setLoggedIn(true);
       setProfilePic(profilePic || "");
-      navigate("/dashboard"); // redirect to dashboard instead of home
+      navigate("/dashboard");
     } catch (err) {
       const msg =
         err.response?.data?.msg ||
@@ -40,7 +41,7 @@ const Login = ({ setLoggedIn, setProfilePic }) => {
         "Something went wrong";
       setError(msg);
     }
-  };
+  };  
 
   return (
     <Container maxWidth="sm">

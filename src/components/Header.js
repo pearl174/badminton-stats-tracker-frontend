@@ -15,7 +15,7 @@ const Header = ({ loggedIn, setLoggedIn, profilePic }) => {
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" onClick={() => navigate("/")} sx={{ cursor: "pointer" }}>
-          Badmintify
+          ShuttleUp
         </Typography>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           {loggedIn ? (

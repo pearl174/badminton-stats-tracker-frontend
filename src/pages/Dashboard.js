@@ -332,7 +332,7 @@ const Dashboard = () => {
                 <PercentIcon sx={{ fontSize: 30, color: "white" }} />
               </Box>
               <Typography variant="h4" sx={{ fontWeight: 500 }}>
-                {profile.winRate || 0}%
+                {Math.round(profile.winRate * 100) || 0}%
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                 Win Rate
@@ -393,7 +393,7 @@ const Dashboard = () => {
                   <Box sx={{ width: "100%", mr: 1 }}>
                     <LinearProgress 
                       variant="determinate" 
-                      value={profile.winRate || 0} 
+                      value={Math.round(profile.winRate * 100) || 0} 
                       sx={{ 
                         height: 10, 
                         borderRadius: 5,
@@ -406,7 +406,7 @@ const Dashboard = () => {
                   </Box>
                   <Box sx={{ minWidth: 40 }}>
                     <Typography variant="body2" color="text.secondary">
-                      {profile.winRate || 0}%
+                      {Math.round(profile.winRate * 100) || 0}%
                     </Typography>
                   </Box>
                 </Box>
