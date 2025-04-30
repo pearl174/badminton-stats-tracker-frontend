@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../styles/CalendarHeatmap.css";
+// import "../styles/CalendarHeatmap.css";
 import {
   Box,
   Container,
@@ -69,7 +69,6 @@ const Dashboard = () => {
     fetchProfile();
   }, [navigate]);
 
-  // Generate dummy data for the heatmap
   const getActivityData = () => {
     
     // Convert map to array of objects with date and count

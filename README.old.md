@@ -1,1 +1,0 @@
-# badminton-stats-tracker-frontend

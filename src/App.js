@@ -47,7 +47,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       setLoggedIn(true);
-      // You could fetch the profile pic here if needed
+      // could fetch the profile pic here if needed
     }
   }, []);
 

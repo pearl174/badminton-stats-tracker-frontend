@@ -49,7 +49,7 @@ const SignUp = () => {
         {success && <Alert severity="success">{success}</Alert>}
         <form onSubmit={handleSubmit}>
           <TextField
-            fullWidth
+            fullWidth 
             label="Username"
             name="username"
             value={form.username}
