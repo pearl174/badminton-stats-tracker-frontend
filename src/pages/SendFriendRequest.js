@@ -8,7 +8,8 @@ import {
   CircularProgress,
   Alert,
 } from "@mui/material";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 
 const SendFriendRequest = () => {
   const [users, setUsers] = useState([]);
@@ -20,7 +21,7 @@ const SendFriendRequest = () => {
     const fetchUsers = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get("http://localhost:5000/api/friends/users", {
+        const res = await API.get("/api/friends/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data.users); // Expects [{ username, _id, profilePic }]
@@ -39,8 +40,8 @@ const SendFriendRequest = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post(
-        "http://localhost:5000/api/friends/send",
+      await API.post(
+        "/api/friends/send",
         { username: selectedUser.username },
         { headers: { Authorization: `Bearer ${token}` } }
       );

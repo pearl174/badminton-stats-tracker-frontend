@@ -12,7 +12,8 @@ import {
   FormControl,
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 
 const PlayMatch = () => {
   const { friendUsername } = useParams();
@@ -28,9 +29,9 @@ const PlayMatch = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios
+    API
       .post(
-        "http://localhost:5000/api/match/create",
+        "/api/match/create",
         { opponentUsername: friendUsername },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -59,8 +60,8 @@ const PlayMatch = () => {
     setEnding(true);
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/match/end",
+      await API.post(
+        "/api/match/end",
         {
           matchId,
           finalScore,

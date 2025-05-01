@@ -1,7 +1,8 @@
 // src/pages/Dashboard.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 // import "../styles/CalendarHeatmap.css";
 import {
   Box,
@@ -45,7 +46,7 @@ const Dashboard = () => {
 
       try {
         console.log("Sending request to profile API with token");
-        const res = await axios.get("http://localhost:5000/api/profile", {
+        const res = await API.get("/api/profile", {
           headers: { 
             "Authorization": `Bearer ${token}`
           },

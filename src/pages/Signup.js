@@ -1,7 +1,8 @@
 // src/pages/SignUp.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 import {
   Box,
   TextField,
@@ -27,7 +28,7 @@ const SignUp = () => {
     setSuccess(null);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", form); // adjust if different port
+      const res = await API.post("/api/auth/register", form); // adjust if different port
       setSuccess(res.data.msg);
       setTimeout(() => navigate("/"), 1500); // wait a bit before redirecting
     } catch (err) {

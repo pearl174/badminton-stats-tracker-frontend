@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, Paper, Avatar, CircularProgress, Button } from "@mui/material";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 
 const FriendRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -9,7 +10,7 @@ const FriendRequests = () => {
   const fetchRequests = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5000/api/friends/requests", {
+      const res = await API.get("/api/friends/requests", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRequests(res.data.friendRequests);
@@ -23,11 +24,11 @@ const FriendRequests = () => {
   const handleRespond = async (username, accept) => {
     const token = localStorage.getItem("token");
     const endpoint = accept
-      ? "http://localhost:5000/api/friends/accept"
-      : "http://localhost:5000/api/friends/reject";
+      ? "/api/friends/accept"
+      : "/api/friends/reject";
   
     try {
-      await axios.post(
+      await API.post(
         endpoint,
         { username },
         { headers: { Authorization: `Bearer ${token}` } }

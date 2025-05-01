@@ -8,7 +8,8 @@ import {
   Container,
   Alert,
 } from "@mui/material";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ setLoggedIn, setProfilePic }) => {
@@ -25,7 +26,7 @@ const Login = ({ setLoggedIn, setProfilePic }) => {
     setError(null);
   
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await API.post("/api/auth/login", form);
       const { token, profilePic } = res.data;
   
       localStorage.setItem("token", token);

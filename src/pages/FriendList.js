@@ -8,7 +8,8 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import API from "../api";
 
 const FriendsList = () => {
   const [friends, setFriends] = useState([]);
@@ -17,8 +18,8 @@ const FriendsList = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios
-      .get("http://localhost:5000/api/friends/list", {
+    API
+      .get("/api/friends/list", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
