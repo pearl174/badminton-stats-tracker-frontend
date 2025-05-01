@@ -28,7 +28,7 @@ const SignUp = () => {
     setSuccess(null);
 
     try {
-      const res = await API.post("/api/auth/register", form); // adjust if different port
+      const res = await API.post("/auth/register", form); // adjust if different port
       setSuccess(res.data.msg);
       setTimeout(() => navigate("/"), 1500); // wait a bit before redirecting
     } catch (err) {

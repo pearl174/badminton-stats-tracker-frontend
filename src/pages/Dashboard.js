@@ -46,7 +46,7 @@ const Dashboard = () => {
 
       try {
         console.log("Sending request to profile API with token");
-        const res = await API.get("/api/profile", {
+        const res = await API.get("/profile", {
           headers: { 
             "Authorization": `Bearer ${token}`
           },

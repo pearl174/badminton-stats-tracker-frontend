@@ -19,7 +19,7 @@ const FriendsList = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     API
-      .get("/api/friends/list", {
+      .get("/friends/list", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

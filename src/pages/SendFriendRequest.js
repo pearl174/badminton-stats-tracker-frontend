@@ -21,7 +21,7 @@ const SendFriendRequest = () => {
     const fetchUsers = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await API.get("/api/friends/users", {
+        const res = await API.get("/friends/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data.users); // Expects [{ username, _id, profilePic }]
@@ -41,7 +41,7 @@ const SendFriendRequest = () => {
     try {
       const token = localStorage.getItem("token");
       await API.post(
-        "/api/friends/send",
+        "/friends/send",
         { username: selectedUser.username },
         { headers: { Authorization: `Bearer ${token}` } }
       );

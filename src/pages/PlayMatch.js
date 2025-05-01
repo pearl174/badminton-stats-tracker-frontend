@@ -31,7 +31,7 @@ const PlayMatch = () => {
   useEffect(() => {
     API
       .post(
-        "/api/match/create",
+        "/match/create",
         { opponentUsername: friendUsername },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -61,7 +61,7 @@ const PlayMatch = () => {
 
     try {
       await API.post(
-        "/api/match/end",
+        "/match/end",
         {
           matchId,
           finalScore,

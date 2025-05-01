@@ -10,7 +10,7 @@ const FriendRequests = () => {
   const fetchRequests = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await API.get("/api/friends/requests", {
+      const res = await API.get("/friends/requests", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRequests(res.data.friendRequests);
@@ -24,8 +24,8 @@ const FriendRequests = () => {
   const handleRespond = async (username, accept) => {
     const token = localStorage.getItem("token");
     const endpoint = accept
-      ? "/api/friends/accept"
-      : "/api/friends/reject";
+      ? "/friends/accept"
+      : "/friends/reject";
   
     try {
       await API.post(

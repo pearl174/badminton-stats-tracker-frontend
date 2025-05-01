@@ -26,7 +26,7 @@ const Login = ({ setLoggedIn, setProfilePic }) => {
     setError(null);
   
     try {
-      const res = await API.post("/api/auth/login", form);
+      const res = await API.post("/auth/login", form);
       const { token, profilePic } = res.data;
   
       localStorage.setItem("token", token);
